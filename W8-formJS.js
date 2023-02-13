@@ -312,9 +312,9 @@ $(document).ready(function () {
     }
 
 
-    $('.onlynumber').keyup(function () {
-        this.value = this.value.replace(/[^0-9\.]/g, '');
-    });
+    // $('.onlynumber').keyup(function () {
+    //     this.value = this.value.replace(/[^0-9\.]/g, '');
+    // });
     function zipcheck() {
         var valid = true
         if (isNaN($("#zip").val())) {
@@ -361,8 +361,8 @@ $(document).ready(function () {
             $("#ssnvalid").html("Pelase Enter valid Number")
             valid = true
         }
-        var number = /^[0-9]{11}$/
-        if ($("#SSN").val().match(number)) {
+        var string = /^[0-9]{11}$/
+        if ($("#SSN").val().match(string)) {
             $("#ssnvalid").html("")
             valid = false
         }
@@ -379,8 +379,8 @@ $(document).ready(function () {
             $("#ttnvalid").html("Pelase Enter valid Number")
             valid = true
         }
-        var number = /^[A-Za-z0-9]+$/
-        if ($("#TTN").val().match(number)) {
+        var string = /^[a-zA-Z0-9]+$/
+        if ($("#TTN").val().match(string)) {
             $("#ttnvalid").html("")
             valid = false
         }
@@ -398,8 +398,8 @@ $(document).ready(function () {
             $("#ReferenceNumbervalid").html("Pelase Enter valid Number")
             valid = true
         }
-        var number = /^[A-Za-z0-9]+$/
-        if ($("#ReferenceNumber").val().match(number)) {
+        var string = /^[A-Za-z0-9]+$/
+        if ($("#ReferenceNumber").val().match(string)) {
             $("#ReferenceNumbervalid").html("")
             valid = false
         }
