@@ -101,17 +101,19 @@ $(document).ready(function () {
     var signaturePad = new SignaturePad(canvas);
     //signature
     $('#canvas').click(function(){
-        
+        var canvas = document.getElementById("signature");
+    var signaturePad = new SignaturePad(canvas);
        
         canvas.width = 800;
         canvas.height = 100;
         //  $('canvas').attr("placeholder","Sign here");
         
     
-        $('#clear-signature').on('click', function () {
-            signaturePad.clear();
-        });
+        
     })
+    $('#clear-signature').on('click', function () {
+        signaturePad.clear();
+    });
    
 
     // const signatureBox = document.getElementById("signature-canvas");
@@ -542,11 +544,13 @@ $(document).ready(function () {
        
     });
     $("#zip").on("keypress keyup blur", function (event) {
-        
-        $(this).val($(this).val().replace(/[^0-9]/g, ''));
-        
-        if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
-            event.preventDefault();
+   
+        if(isNaN($(this).val())){
+            $("#zipfailss").show()
+            $("#zipfails").html("Enter 5 Digits")
+        }
+        else{
+            $("#zipfails").html("")
         }
     })
     
