@@ -23,7 +23,7 @@
 </head>
 <body>
     <div class="container mainbody" id="main">
-      <form>
+      <form id="form">
         <header class="text-center margin">
             <h2 id="tittle">Certificate of Foreign Status of Beneficial Owner for United States Tax Withholding and Reporting (Individuals)</h2>
             <span id="subtittle">Department of the Treasury Internal Revenue Service</span>
@@ -155,7 +155,7 @@
                   </label>
                 </div>
                 <div class="col-md-8">
-                  <input type="text" class="form-control onlynumber" id="SSN">
+                  <input type="text" class="form-control onlynumber" id="SSN" name="ssnname">
                   <small id="ssnvalid"></small>
                 </div>
               </div>
@@ -166,7 +166,7 @@
                   </label>
                 </div>
                 <div class="col-md-8">
-                  <input type="text" class="form-control onlynumber" id="TTN" placeholder="">
+                  <input type="text" class="form-control onlynumber" id="TTN" name="ttnname" placeholder="">
                   <small id="ttnvalid"></small>
                 </div>
               </div>
@@ -177,7 +177,7 @@
                   </label>
                 </div>
                 <div class="col-md-8">
-                  <input type="text" class="form-control onlynumber" id="ReferenceNumber" placeholder="">
+                  <input type="text" class="form-control onlynumber" name="ReferenceNumbername" id="ReferenceNumber" placeholder="">
                   <small id="ReferenceNumbervalid"></small>
                 </div>
               </div>
@@ -304,5 +304,6 @@
     </div>
     <script src="W8-formJS.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
