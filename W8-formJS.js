@@ -40,54 +40,62 @@ $(document).ready(function () {
     };
 
     //signature
-    const signatureBox = document.getElementById("signature-canvas");
-    signatureBox.width = 800;
-    signatureBox.height = 100;
 
-    const context = signatureBox.getContext("2d");
-    context.font = "16px Arial";
-    context.fillStyle = "#968f8f";
-    context.textAlign = "center";
-    context.fillText("Sign Here", signatureBox.width / 2, signatureBox.height / 2);
+    var canvas = document.getElementById("signature");
+    var signaturePad = new SignaturePad(canvas);
 
-    let isDrawing = false;
-    let x = 0;
-    let y = 0;
-
-    signatureBox.addEventListener("mousedown", (event) => {
-        
-    isDrawing = true;
-    context.clearRect(0, 0, signatureBox.width, signatureBox.height);
-    x = event.clientX - signatureBox.offsetLeft;
-    y = event.clientY - signatureBox.offsetTop;
+    $('#clear-signature').on('click', function () {
+        signaturePad.clear();
     });
 
-    signatureBox.addEventListener("mouseup", () => {
-        isDrawing = false;
-    });
+    // const signatureBox = document.getElementById("signature-canvas");
+    // signatureBox.width = 800;
+    // signatureBox.height = 100;
 
-    signatureBox.addEventListener("mousemove", (event) => {
-        if (!isDrawing) {
-            return;
-        }
-        context.beginPath();
-        context.moveTo(x, y);
-        x = event.clientX - signatureBox.offsetLeft;
-        y = event.clientY - signatureBox.offsetTop;
-        context.lineTo(x, y);
-        context.stroke();
-    });
+    // const context = signatureBox.getContext("2d");
+    // context.font = "16px Arial";
+    // context.fillStyle = "#968f8f";
+    // context.textAlign = "center";
+    // context.fillText("Sign Here", signatureBox.width / 2, signatureBox.height / 2);
 
-    const clearButton = document.getElementById("clear-button");
-    clearButton.addEventListener("click", () => {
-        context.clearRect(0, 0, signatureBox.width, signatureBox.height);
-        context.fillText("Sign Here", signatureBox.width / 2, signatureBox.height / 2);
-    });
+    // let isDrawing = false;
+    // let x = 0;
+    // let y = 0;
+
+    // signatureBox.addEventListener("mousedown", (event) => {
+
+    // isDrawing = true;
+    // context.clearRect(0, 0, signatureBox.width, signatureBox.height);
+    // x = event.clientX - signatureBox.offsetLeft;
+    // y = event.clientY - signatureBox.offsetTop;
+    // });
+
+    // signatureBox.addEventListener("mouseup", () => {
+    //     isDrawing = false;
+    // });
+
+    // signatureBox.addEventListener("mousemove", (event) => {
+    //     if (!isDrawing) {
+    //         return;
+    //     }
+    //     context.beginPath();
+    //     context.moveTo(x, y);
+    //     x = event.clientX - signatureBox.offsetLeft;
+    //     y = event.clientY - signatureBox.offsetTop;
+    //     context.lineTo(x, y);
+    //     context.stroke();
+    // });
+
+    // const clearButton = document.getElementById("clear-button");
+    // clearButton.addEventListener("click", () => {
+    //     context.clearRect(0, 0, signatureBox.width, signatureBox.height);
+    //     context.fillText("Sign Here", signatureBox.width / 2, signatureBox.height / 2);
+    // });
 
 
 
-    $("#submit").click(function(){
-        if(!myFunction()){
+    $("#submit").click(function () {
+        if (!myFunction()) {
             swal("successful");
         }
         else {
@@ -99,164 +107,164 @@ $(document).ready(function () {
     $("#cityfailss").hide()
     $("#statefailss").hide()
     $("#zipfailss").hide()
-    function myFunction() { 
-        var valid=false
-        
-            valid= namecheck()
-            if(valid==true)
-                return valid
-            valid= countrycheck()
-            if(valid==true)
-                return valid
-            valid= streetcheck()
-            if(valid==true)
-                return valid
-            valid= streetcheck2()
-            if(valid==true)
-                return valid
-            valid= citycheck()
-            if(valid==true)
-                return valid
-            valid= statecheck()
-            if(valid==true)
-                return valid
-            valid= zipcheck()
-            if(valid==true)
-                return valid
-            valid= countryycheck()
-            if(valid==true)
-                return valid
-            valid= primenamecheck()
-            if(valid==true)
-                return valid
-            valid= capacitycheck()
-            if(valid==true)
-                return valid   
+    function myFunction() {
+        var valid = false
 
-                    
+        valid = namecheck()
+        if (valid == true)
+            return valid
+        valid = countrycheck()
+        if (valid == true)
+            return valid
+        valid = streetcheck()
+        if (valid == true)
+            return valid
+        valid = streetcheck2()
+        if (valid == true)
+            return valid
+        valid = citycheck()
+        if (valid == true)
+            return valid
+        valid = statecheck()
+        if (valid == true)
+            return valid
+        valid = zipcheck()
+        if (valid == true)
+            return valid
+        valid = countryycheck()
+        if (valid == true)
+            return valid
+        valid = primenamecheck()
+        if (valid == true)
+            return valid
+        valid = capacitycheck()
+        if (valid == true)
+            return valid
+
+
     }
-    function namecheck(){
-        var valid=true
+    function namecheck() {
+        var valid = true
         // alert("namecheck")
-        if($("#name").val()==""){
-        $("#namefails").html("Please Enter Proper Name")
-        valid=true
+        if ($("#name").val() == "") {
+            $("#namefails").html("Please Enter Proper Name")
+            valid = true
         }
-        var string=/^[a-z A-Z]+$/
-        if($("#name").val().match(string)){
-        $("#namefails").html("")
-        valid=false
+        var string = /^[a-z A-Z]+$/
+        if ($("#name").val().match(string)) {
+            $("#namefails").html("")
+            valid = false
         }
-        else{
+        else {
             $("#namefails").html("Please Enter Proper Name")
         }
         // alert(valid)
         return valid
     }
 
-    function primenamecheck(){
-        var valid=true
+    function primenamecheck() {
+        var valid = true
         // alert("namecheck")
-        if($("#printname").val()==""){
-        $("#printnamevalid").html("Pelase Enter valid Name")
-        valid=true
+        if ($("#printname").val() == "") {
+            $("#printnamevalid").html("Pelase Enter valid Name")
+            valid = true
         }
-        var string=/^[a-z A-Z]+$/
-        if($("#printname").val().match(string)){
-        $("#printnamevalid").html("")
-        valid=false
+        var string = /^[a-z A-Z]+$/
+        if ($("#printname").val().match(string)) {
+            $("#printnamevalid").html("")
+            valid = false
         }
-        else{
+        else {
             $("#printnamevalid").html("Pelase Enter Name")
         }
     }
-    function countrycheck(){
-        var valid=true
+    function countrycheck() {
+        var valid = true
         // alert("namecheck")
-        if($("#country").val()==""){
-        $("#countryfails").html("Pelase Enter Proper Country Name")
-        valid=true
+        if ($("#country").val() == "") {
+            $("#countryfails").html("Pelase Enter Proper Country Name")
+            valid = true
         }
-        var string=/^[a-zA-Z]+$/
-        if($("#country").val().match(string)){
-        $("#countryfails").html("")
-        valid=false
+        var string = /^[a-zA-Z]+$/
+        if ($("#country").val().match(string)) {
+            $("#countryfails").html("")
+            valid = false
         }
-        else{
+        else {
             $("#countryfails").html("Pelase Enter Proper Country Name")
         }
         // alert(valid)
         return valid
     }
-    function streetcheck(){
-        var valid=true
+    function streetcheck() {
+        var valid = true
         // alert("namecheck")
-        if($("#streetaddress").val()==""){
-        $("#streetaddressfails").html("Pelase Enter Proper Streetaddress Name")
-        $("#streetaddressfailss").show()
-        valid=true
+        if ($("#streetaddress").val() == "") {
+            $("#streetaddressfails").html("Pelase Enter Proper Streetaddress Name")
+            $("#streetaddressfailss").show()
+            valid = true
         }
-       else{
-        $("#streetaddressfailss").hide()
-        $("#streetaddressfails").html("")
-        valid=false
-       }
+        else {
+            $("#streetaddressfailss").hide()
+            $("#streetaddressfails").html("")
+            valid = false
+        }
         // alert(valid)
         return valid
     }
-    function streetcheck2(){
-        var valid=true
+    function streetcheck2() {
+        var valid = true
         // alert("namecheck")
-        if($("#streetaddressline2").val()==""){
-        $("#streetaddressline2fails").html("Pelase Enter Proper Streetaddressline2 Name")
-        $("#streetaddressline2failss").show()
-        valid=true
+        if ($("#streetaddressline2").val() == "") {
+            $("#streetaddressline2fails").html("Pelase Enter Proper Streetaddressline2 Name")
+            $("#streetaddressline2failss").show()
+            valid = true
         }
-       else{
-        $("#streetaddressline2failss").hide()
-        $("#streetaddressline2fails").html("")
-        valid=false
-       }
+        else {
+            $("#streetaddressline2failss").hide()
+            $("#streetaddressline2fails").html("")
+            valid = false
+        }
         // alert(valid)
         return valid
     }
 
-    function citycheck(){
-        var valid=true
+    function citycheck() {
+        var valid = true
         // alert("namecheck")
-        if($("#city").val()==""){
-        $("#cityfails").html("Pelase Enter Proper City Name")
-        $("#cityfailss").show()
-        valid=true
+        if ($("#city").val() == "") {
+            $("#cityfails").html("Pelase Enter Proper City Name")
+            $("#cityfailss").show()
+            valid = true
         }
-        var string=/^[a-zA-Z]+$/
-        if($("#city").val().match(string)){
+        var string = /^[a-zA-Z]+$/
+        if ($("#city").val().match(string)) {
             $("#cityfailss").hide()
-        $("#cityfails").html("")
-        valid=false
+            $("#cityfails").html("")
+            valid = false
         }
-        else{
+        else {
             $("#cityfailss").show()
             $("#cityfails").html("Pelase Enter Proper City Name")
         }
         // alert(valid)
         return valid
     }
-    function statecheck(){
-        var valid=true
+    function statecheck() {
+        var valid = true
         // alert("namecheck")
-        if($("#state").val()==""){
-        $("#statefails").html("Pelase Enter Proper State Name")
-        $("#statefailss").show()
-        valid=true
+        if ($("#state").val() == "") {
+            $("#statefails").html("Pelase Enter Proper State Name")
+            $("#statefailss").show()
+            valid = true
         }
-        var string=/^[a-zA-Z]+$/
-        if($("#state").val().match(string)){
+        var string = /^[a-zA-Z]+$/
+        if ($("#state").val().match(string)) {
             $("#statefailss").hide()
-        $("#statefails").html("")
-        valid=false
+            $("#statefails").html("")
+            valid = false
         }
-        else{
+        else {
             $("#statefailss").show()
             $("#statefails").html("Pelase Enter Proper State Name")
         }
@@ -264,65 +272,65 @@ $(document).ready(function () {
         return valid
     }
 
-    function capacitycheck(){
-        var valid=true
+    function capacitycheck() {
+        var valid = true
         // alert("namecheck")
-        if($("#capacity").val()==""){
-        $("#capacityvalid").html("Pelase Enter valid Name")
-        valid=true
+        if ($("#capacity").val() == "") {
+            $("#capacityvalid").html("Pelase Enter valid Name")
+            valid = true
         }
-        var string=/^[a-z A-Z]+$/
-        if($("#capacity").val().match(string)){
-        $("#capacityvalid").html("")
-        valid=false
+        var string = /^[a-z A-Z]+$/
+        if ($("#capacity").val().match(string)) {
+            $("#capacityvalid").html("")
+            valid = false
         }
-        else{
+        else {
             $("#capacityvalid").html("Pelase Enter Name")
         }
         // alert(valid)
         return valid
     }
 
-   
-    $('.onlynumber').keyup(function () { 
-        this.value = this.value.replace(/[^0-9\.]/g,'');
+
+    $('.onlynumber').keyup(function () {
+        this.value = this.value.replace(/[^0-9\.]/g, '');
     });
-    function zipcheck(){
-        var valid=true
-        if(isNaN($("#zip").val())){
+    function zipcheck() {
+        var valid = true
+        if (isNaN($("#zip").val())) {
             $("#zipfailss").show()
             $("#zipfails").html("Enter 6 Digits")
-            valid=true
+            valid = true
         }
-        else{
-            if($("#zip").val().length<6 || $("#zip").val().length>6){
+        else {
+            if ($("#zip").val().length < 6 || $("#zip").val().length > 6) {
                 $("#zipfailss").show()
                 $("#zipfails").html("Enter 6 Digits")
-             }
-             if($("#zip").val().length==6){
+            }
+            if ($("#zip").val().length == 6) {
                 $("#zipfailss").hide()
                 $("#zipfails").html("")
-                valid=false
-             }
+                valid = false
+            }
         }
         return valid
-}  
-function countryycheck(){
-    // debugger
-    var valid=true
-    selectElement = document.querySelector('#countryy');
-    output1=selectElement.value;
-    if(output1==0){
-        $("#countryyfailss").show()
-        $("#countryyfails").html("Please Select Country")
-        valid=true;
     }
-    else{
-        $("#countryyfailss").hide()
-        $("#countryyfails").html("")
-        valid=false
-    }
-    return valid
+    function countryycheck() {
+        // debugger
+        var valid = true
+        selectElement = document.querySelector('#countryy');
+        output1 = selectElement.value;
+        if (output1 == 0) {
+            $("#countryyfailss").show()
+            $("#countryyfails").html("Please Select Country")
+            valid = true;
+        }
+        else {
+            $("#countryyfailss").hide()
+            $("#countryyfails").html("")
+            valid = false
+        }
+        return valid
 
-}
+    }
 })
