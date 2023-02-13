@@ -542,13 +542,11 @@ $(document).ready(function () {
        
     });
     $("#zip").on("keypress keyup blur", function (event) {
-   
-        if(isNaN($(this).val())){
-            $("#zipfailss").show()
-            $("#zipfails").html("Enter 5 Digits")
-        }
-        else{
-            $("#zipfails").html("")
+        
+        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+        
+        if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+            event.preventDefault();
         }
     })
     
