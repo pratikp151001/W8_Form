@@ -70,3 +70,6 @@ small{
     font-size: medium;
 
 }
+label.error{
+    color: red;
+}
