@@ -57,4 +57,8 @@ $(document).ready(function () {
     context.fillText("Sign Here", signatureBox.width / 2, signatureBox.height / 2);
     });
 
+
+
+    
+
 })
