@@ -1,7 +1,5 @@
 
 $(document).ready(function () {
-
-//    alert( $("#DOB").val())
 //    console.log($("#DOB").val())
     $('.txtDate').daterangepicker({
         singleDatePicker: true,
@@ -101,6 +99,8 @@ $(document).ready(function () {
     $("#cityfailss").hide()
     $("#statefailss").hide()
     $("#zipfailss").hide()
+    $("#birthdayfailss").hide()
+    
     function myFunction() { 
         var valid=false
         
@@ -137,7 +137,9 @@ $(document).ready(function () {
             valid= ReferenceNumbercheck()
             if(valid==true)
                 return valid
-
+            valid= birthdaycheck()
+            if(valid==true)
+                return valid
             valid= primenamecheck()
             if(valid==true)
                 return valid
@@ -393,5 +395,19 @@ function ReferenceNumbercheck() {
     }
    
     return valid
+}
+function birthdaycheck(){
+    var valid = true
+    if(!$("#DOB").val()){
+        valid=true
+        $("#birthdayfailss").show()
+        $("#birthdayfails").html("Pelase choose birthday")
+       }
+       else{
+        valid=false
+        $("#birthdayfailss").hide()
+        $("#birthdayfails").html("")
+       }
+       return valid
 }
 })
