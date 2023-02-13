@@ -32,12 +32,10 @@ hr{
 label{
     font-size: 1.1rem;
     font-weight: 500;
+    color: rgb(36, 35, 35);
 }
 .mainrow{
     padding-top: 50px;
-}
-label{
-    color: rgb(36, 35, 35);
 }
 .signature-box {
     border: 1px solid #968f8f ;

@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-
+//    console.log($("#DOB").val())
     $('.txtDate').daterangepicker({
         singleDatePicker: true,
         showDropdowns: true,
@@ -107,6 +107,56 @@ $(document).ready(function () {
     $("#cityfailss").hide()
     $("#statefailss").hide()
     $("#zipfailss").hide()
+    $("#birthdayfailss").hide()
+    
+    function myFunction() { 
+        var valid=false
+        
+            valid= namecheck()
+            if(valid==true)
+                return valid
+            valid= countrycheck()
+            if(valid==true)
+                return valid
+            valid= streetcheck()
+            if(valid==true)
+                return valid
+            valid= streetcheck2()
+            if(valid==true)
+                return valid
+            valid= citycheck()
+            if(valid==true)
+                return valid
+            valid= statecheck()
+            if(valid==true)
+                return valid
+            valid= zipcheck()
+            if(valid==true)
+                return valid
+            valid= countryycheck()
+            if(valid==true)
+                return valid
+            valid= ssncheck()
+            if(valid==true)
+                return valid
+            valid= ttncheck()
+            if(valid==true)
+                return valid
+            valid= ReferenceNumbercheck()
+            if(valid==true)
+                return valid
+            valid= birthdaycheck()
+            if(valid==true)
+                return valid
+            valid= primenamecheck()
+            if(valid==true)
+                return valid
+            valid= capacitycheck()
+            if(valid==true)
+                return valid
+               
+
+                    
     function myFunction() {
         var valid = false
 
@@ -332,5 +382,75 @@ $(document).ready(function () {
         }
         return valid
 
+}
+
+function ssncheck() {
+    var valid = true
+   
+    if ($("#SSN").val() == "") {
+        $("#ssnvalid").html("Pelase Enter valid Number")
+        valid = true
     }
+    var number = /^[0-9]+$/
+    if ($("#SSN").val().match(number)) {
+        $("#ssnvalid").html("")
+        valid = false
+    }
+    else {
+        $("#ssnvalid").html("Pelase Enter Number")
+    }
+    
+    return valid
+}
+function ttncheck() {
+    var valid = true
+   
+    if ($("#TTN").val() == "") {
+        $("#ttnvalid").html("Pelase Enter valid Number")
+        valid = true
+    }
+    var number = /^[0-9]+$/
+    if ($("#TTN").val().match(number)) {
+        $("#ttnvalid").html("")
+        valid = false
+    }
+    else {
+        $("#ttnvalid").html("Pelase Enter Number")
+    }
+   
+    return valid
+}
+
+function ReferenceNumbercheck() {
+    var valid = true
+    
+    if ($("#ReferenceNumber").val() == "") {
+        $("#ReferenceNumbervalid").html("Pelase Enter valid Number")
+        valid = true
+    }
+    var number = /^[0-9]+$/
+    if ($("#ReferenceNumber").val().match(number)) {
+        $("#ReferenceNumbervalid").html("")
+        valid = false
+    }
+    else {
+        $("#ReferenceNumbervalid").html("Pelase Enter Number")
+    }
+   
+    return valid
+}
+function birthdaycheck(){
+    var valid = true
+    if(!$("#DOB").val()){
+        valid=true
+        $("#birthdayfailss").show()
+        $("#birthdayfails").html("Pelase choose birthday")
+       }
+       else{
+        valid=false
+        $("#birthdayfailss").hide()
+        $("#birthdayfails").html("")
+       }
+       return valid
+}
 })
