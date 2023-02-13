@@ -188,7 +188,7 @@ $(document).ready(function () {
         var valid = true
         // alert("namecheck")
         if ($("#printname").val() == "") {
-            $("#printnamevalid").html("Pelase Enter valid Name")
+            $("#printnamevalid").html("Please Enter valid Name")
             valid = true
         }
         var string = /^[a-z A-Z]+$/
@@ -197,14 +197,14 @@ $(document).ready(function () {
             valid = false
         }
         else {
-            $("#printnamevalid").html("Pelase Enter Name")
+            $("#printnamevalid").html("Please Enter Name")
         }
     }
     function countrycheck() {
         var valid = true
         // alert("namecheck")
         if ($("#country").val() == "") {
-            $("#countryfails").html("Pelase Enter Proper Country Name")
+            $("#countryfails").html("Please Enter Proper Country Name")
             valid = true
         }
         var string = /^[a-zA-Z]+$/
@@ -213,7 +213,7 @@ $(document).ready(function () {
             valid = false
         }
         else {
-            $("#countryfails").html("Pelase Enter Proper Country Name")
+            $("#countryfails").html("Please Enter Proper Country Name")
         }
         // alert(valid)
         return valid
@@ -222,7 +222,7 @@ $(document).ready(function () {
         var valid = true
         // alert("namecheck")
         if ($("#streetaddress").val() == "") {
-            $("#streetaddressfails").html("Pelase Enter Proper Streetaddress Name")
+            $("#streetaddressfails").html("Please Enter Proper Streetaddress Name")
             $("#streetaddressfailss").show()
             valid = true
         }
@@ -238,7 +238,7 @@ $(document).ready(function () {
         var valid = true
         // alert("namecheck")
         if ($("#streetaddressline2").val() == "") {
-            $("#streetaddressline2fails").html("Pelase Enter Proper Streetaddressline2 Name")
+            $("#streetaddressline2fails").html("Please Enter Proper Streetaddressline2 Name")
             $("#streetaddressline2failss").show()
             valid = true
         }
@@ -255,7 +255,7 @@ $(document).ready(function () {
         var valid = true
         // alert("namecheck")
         if ($("#city").val() == "") {
-            $("#cityfails").html("Pelase Enter Proper City Name")
+            $("#cityfails").html("Please Enter Proper City Name")
             $("#cityfailss").show()
             valid = true
         }
@@ -267,7 +267,7 @@ $(document).ready(function () {
         }
         else {
             $("#cityfailss").show()
-            $("#cityfails").html("Pelase Enter Proper City Name")
+            $("#cityfails").html("Please Enter Proper City Name")
         }
         // alert(valid)
         return valid
@@ -276,7 +276,7 @@ $(document).ready(function () {
         var valid = true
         // alert("namecheck")
         if ($("#state").val() == "") {
-            $("#statefails").html("Pelase Enter Proper State Name")
+            $("#statefails").html("Please Enter Proper State Name")
             $("#statefailss").show()
             valid = true
         }
@@ -288,7 +288,7 @@ $(document).ready(function () {
         }
         else {
             $("#statefailss").show()
-            $("#statefails").html("Pelase Enter Proper State Name")
+            $("#statefails").html("Please Enter Proper State Name")
         }
         // alert(valid)
         return valid
@@ -298,7 +298,7 @@ $(document).ready(function () {
         var valid = true
         // alert("namecheck")
         if ($("#capacity").val() == "") {
-            $("#capacityvalid").html("Pelase Enter valid Name")
+            $("#capacityvalid").html("Please Enter valid Name")
             valid = true
         }
         var string = /^[a-z A-Z]+$/
@@ -307,7 +307,7 @@ $(document).ready(function () {
             valid = false
         }
         else {
-            $("#capacityvalid").html("Pelase Enter Name")
+            $("#capacityvalid").html("Please Enter Name")
         }
         // alert(valid)
         return valid
@@ -360,7 +360,7 @@ $(document).ready(function () {
         var valid = true
 
         if ($("#SSN").val() == "") {
-            $("#ssnvalid").html("Pelase Enter valid Number")
+            $("#ssnvalid").html("Please Enter 11 Digit Only")
             valid = true
         }
         var string = /^[0-9]{11}$/
@@ -369,7 +369,7 @@ $(document).ready(function () {
             valid = false
         }
         else {
-            $("#ssnvalid").html("Pelase Enter Number")
+            $("#ssnvalid").html("Please Enter 11 Digit Only")
         }
 
         return valid
@@ -378,7 +378,7 @@ $(document).ready(function () {
         var valid = true
 
         if ($("#TTN").val() == "") {
-            $("#ttnvalid").html("Pelase Enter valid Number")
+            $("#ttnvalid").html("Please Enter valid value")
             valid = true
         }
         var string = /^[a-zA-Z0-9]+$/
@@ -387,7 +387,7 @@ $(document).ready(function () {
             valid = false
         }
         else {
-            $("#ttnvalid").html("Pelase Enter Number")
+            $("#ttnvalid").html("Please Enter valid value ")
         }
 
         return valid
@@ -397,7 +397,7 @@ $(document).ready(function () {
         var valid = true
 
         if ($("#ReferenceNumber").val() == "") {
-            $("#ReferenceNumbervalid").html("Pelase Enter valid Number")
+            $("#ReferenceNumbervalid").html("Please Enter valid value")
             valid = true
         }
         var string = /^[A-Za-z0-9]+$/
@@ -406,7 +406,7 @@ $(document).ready(function () {
             valid = false
         }
         else {
-            $("#ReferenceNumbervalid").html("Pelase Enter Number")
+            $("#ReferenceNumbervalid").html("Please Enter valid value")
         }
 
         return valid
@@ -416,7 +416,7 @@ $(document).ready(function () {
         if (!$("#DOB").val()) {
             valid = true
             $("#birthdayfailss").show()
-            $("#birthdayfails").html("Pelase choose birthday")
+            $("#birthdayfails").html("Please choose birthday")
         }
         else {
             valid = false
@@ -429,7 +429,7 @@ $(document).ready(function () {
         var valid = true
         if ($("#blank").val() == "") {
             valid = true
-            $("#balnkfails").html("Pelase Fill Blank")
+            $("#balnkfails").html("Please Fill Blank")
         }
         else {
             valid = false
@@ -442,12 +442,12 @@ $(document).ready(function () {
         var valid = true
         if ($("#blank1").val() == "" || $("#specialRate").val() == "" || $("#blank2").val() == "" || $("#blank3").val() == "") {
             valid = true
-            $("#tenthfails").html("Pelase Fill Blank")
+            $("#tenthfails").html("Please Fill Blank")
         }
         else {
             if (isNaN($("#specialRate").val())) {
                 valid = true
-                $("#tenthfails").html("Pelase Enter Digits in specialrate")
+                $("#tenthfails").html("Please Enter Digits in specialrate")
                 if(parseFloat($("#specialRate").val())>100){
                     $("#tenthfails").html("Enter Value less than 100")
                     valid = true
@@ -466,7 +466,7 @@ $(document).ready(function () {
 
         $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
         if( $("#specialRate").val()>100){
-            $("#tenthfails").html("Pelase Enter value less tham 100")
+            $("#tenthfails").html("Please Enter value less tham 100")
             $("#specialRate").val()=""
         }
         if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
