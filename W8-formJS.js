@@ -361,7 +361,7 @@ $(document).ready(function () {
             $("#ssnvalid").html("Pelase Enter valid Number")
             valid = true
         }
-        var number = /^[0-9]+$/
+        var number = /^[0-9]{11}$/
         if ($("#SSN").val().match(number)) {
             $("#ssnvalid").html("")
             valid = false
@@ -379,7 +379,7 @@ $(document).ready(function () {
             $("#ttnvalid").html("Pelase Enter valid Number")
             valid = true
         }
-        var number = /^[0-9]+$/
+        var number = /^[A-Za-z0-9]+$/
         if ($("#TTN").val().match(number)) {
             $("#ttnvalid").html("")
             valid = false
@@ -398,7 +398,7 @@ $(document).ready(function () {
             $("#ReferenceNumbervalid").html("Pelase Enter valid Number")
             valid = true
         }
-        var number = /^[0-9]+$/
+        var number = /^[A-Za-z0-9]+$/
         if ($("#ReferenceNumber").val().match(number)) {
             $("#ReferenceNumbervalid").html("")
             valid = false
@@ -455,7 +455,7 @@ $(document).ready(function () {
         return valid
     }
 
-    
+
     $("#specialRate").on("keypress keyup blur", function (event) {
 
         $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
