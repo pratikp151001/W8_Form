@@ -1,6 +1,8 @@
 
 $(document).ready(function () {
 
+//    alert( $("#DOB").val())
+//    console.log($("#DOB").val())
     $('.txtDate').daterangepicker({
         singleDatePicker: true,
         showDropdowns: true,
@@ -126,12 +128,23 @@ $(document).ready(function () {
             valid= countryycheck()
             if(valid==true)
                 return valid
+            valid= ssncheck()
+            if(valid==true)
+                return valid
+            valid= ttncheck()
+            if(valid==true)
+                return valid
+            valid= ReferenceNumbercheck()
+            if(valid==true)
+                return valid
+
             valid= primenamecheck()
             if(valid==true)
                 return valid
             valid= capacitycheck()
             if(valid==true)
-                return valid   
+                return valid
+               
 
                     
     }
@@ -324,5 +337,61 @@ function countryycheck(){
     }
     return valid
 
+}
+
+function ssncheck() {
+    var valid = true
+   
+    if ($("#SSN").val() == "") {
+        $("#ssnvalid").html("Pelase Enter valid Number")
+        valid = true
+    }
+    var number = /^[0-9]+$/
+    if ($("#SSN").val().match(number)) {
+        $("#ssnvalid").html("")
+        valid = false
+    }
+    else {
+        $("#ssnvalid").html("Pelase Enter Number")
+    }
+    
+    return valid
+}
+function ttncheck() {
+    var valid = true
+   
+    if ($("#TTN").val() == "") {
+        $("#ttnvalid").html("Pelase Enter valid Number")
+        valid = true
+    }
+    var number = /^[0-9]+$/
+    if ($("#TTN").val().match(number)) {
+        $("#ttnvalid").html("")
+        valid = false
+    }
+    else {
+        $("#ttnvalid").html("Pelase Enter Number")
+    }
+   
+    return valid
+}
+
+function ReferenceNumbercheck() {
+    var valid = true
+    
+    if ($("#ReferenceNumber").val() == "") {
+        $("#ReferenceNumbervalid").html("Pelase Enter valid Number")
+        valid = true
+    }
+    var number = /^[0-9]+$/
+    if ($("#ReferenceNumber").val().match(number)) {
+        $("#ReferenceNumbervalid").html("")
+        valid = false
+    }
+    else {
+        $("#ReferenceNumbervalid").html("Pelase Enter Number")
+    }
+   
+    return valid
 }
 })
