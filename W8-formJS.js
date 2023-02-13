@@ -140,6 +140,13 @@ $(document).ready(function () {
             valid= birthdaycheck()
             if(valid==true)
                 return valid
+
+            valid= blankcheck()
+            if(valid==true)
+                return valid
+            valid= tenthfield()
+            if(valid==true)
+                    return valid    
             valid= primenamecheck()
             if(valid==true)
                 return valid
@@ -407,6 +414,37 @@ function birthdaycheck(){
         valid=false
         $("#birthdayfailss").hide()
         $("#birthdayfails").html("")
+       }
+       return valid
+}
+function blankcheck(){
+    var valid = true
+    if($("#blank").val()==""){
+        valid=true
+        $("#balnkfails").html("Pelase Fill Blank")
+       }
+       else{
+        valid=false
+        
+        $("#birthdayfails").html("")
+       }
+       return valid
+}
+function tenthfield(){
+    var valid = true
+    if($("#blank1").val()=="" ||$("#specialRate").val()==""|| $("#blank2").val()=="" || $("#blank3").val()==""){
+        valid=true
+        $("#tenthfails").html("Pelase Fill Blank")
+       }
+       else{
+        if(isNaN($("#specialRate").val())){
+            valid=true
+            $("#tenthfails").html("Pelase Enter Digits in specialrate")
+        }else{
+        valid=false
+        
+        $("#tenthfails").html("")
+        }
        }
        return valid
 }
