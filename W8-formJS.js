@@ -1,16 +1,29 @@
 
 $(document).ready(function () {
+    $('#date').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        autoUpdateInput: false,
+        locale: {
+            cancelLabel: 'Clear'
+        }
+    });
+    $('#date').val('');
+
+    $('#DOB').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        autoUpdateInput: false,
+        maxDate: new Date(),
+        locale: {
+            cancelLabel: 'Clear'
+        }
+    });
+    $('#DOB').val('');
+
     //    console.log($("#DOB").val())
     $('#date').click(function (){
-        $('#date').daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            autoUpdateInput: false,
-            locale: {
-                cancelLabel: 'Clear'
-            }
-        });
-        $('#date').val('');
+        
     
         //datevalidation
         $("#date").keydown(function (e) {
@@ -47,16 +60,7 @@ $(document).ready(function () {
     
     })
     $('#DOB').click(function (){
-        $('#DOB').daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            autoUpdateInput: false,
-            maxDate: new Date(),
-            locale: {
-                cancelLabel: 'Clear'
-            }
-        });
-        $('#DOB').val('');
+        
     
         //datevalidation
         $("#DOB").keydown(function (e) {
@@ -93,20 +97,22 @@ $(document).ready(function () {
     
     })
 
-
-    
-    //signature
-    
     var canvas = document.getElementById("signature");
     var signaturePad = new SignaturePad(canvas);
-    canvas.width = 800;
-    canvas.height = 100;
-    //$('canvas').attr("placeholder","Sign here");
+    //signature
+    $('#canvas').click(function(){
+        
+       
+        canvas.width = 800;
+        canvas.height = 100;
+        //  $('canvas').attr("placeholder","Sign here");
+        
     
-
-    $('#clear-signature').on('click', function () {
-        signaturePad.clear();
-    });
+        $('#clear-signature').on('click', function () {
+            signaturePad.clear();
+        });
+    })
+   
 
     // const signatureBox = document.getElementById("signature-canvas");
     // signatureBox.width = 800;
