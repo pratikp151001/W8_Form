@@ -1,45 +1,100 @@
 
 $(document).ready(function () {
     //    console.log($("#DOB").val())
-    $('.txtDate').daterangepicker({
-        singleDatePicker: true,
-        showDropdowns: true,
-    });
-    $('.txtDate').val('');
-
-    //datevalidation
-    $(".txtDate").keydown(function (e) {
-        IsNumeric(this, e.keyCode);
-    });
-
-    var isShift = false;
-    var seperator = "/";
-    function IsNumeric(input, keyCode) {
-
-        if ($(".txtDate").val() == "") {
-            $(".dateError").html("Please Enter Date(MM/DD/YYYY)")
-            //$('.txtDate').val('');
-        }
-
-        if (keyCode == 16) {
-            isShift = true;
-        }
-        //Allow only Numeric Keys.
-        if (((keyCode >= 48 && keyCode <= 57) || keyCode == 8 || keyCode <= 37 || keyCode <= 39 || (keyCode >= 96 && keyCode <= 105)) && isShift == false) {
-            if ((input.value.length == 2 || input.value.length == 5) && keyCode != 8) {
-                input.value += seperator;
+    $('#date').click(function (){
+        $('#date').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            autoUpdateInput: false,
+            locale: {
+                cancelLabel: 'Clear'
             }
-            $(".dateError").html("");
-            return true;
-        }
-        else {
-            $(".dateError").html("Please Enter Date(MM/DD/YYYY)");
-            $('.txtDate').val('');
-            return false;
-            
-        }
-    };
+        });
+        $('#date').val('');
+    
+        //datevalidation
+        $("#date").keydown(function (e) {
+            IsNumeric(this, e.keyCode);
+        });
+    
+        var isShift = false;
+        var seperator = "/";
+        function IsNumeric(input, keyCode) {
+    
+            if ($("#date").val() == "") {
+                $(".dateError").html("Please Enter Date(MM/DD/YYYY)")
+                //$('.txtDate').val('');
+            }
+    
+            if (keyCode == 16) {
+                isShift = true;
+            }
+            //Allow only Numeric Keys.
+            if (((keyCode >= 48 && keyCode <= 57) || keyCode == 8 || keyCode <= 37 || keyCode <= 39 || (keyCode >= 96 && keyCode <= 105)) && isShift == false) {
+                if ((input.value.length == 2 || input.value.length == 5) && keyCode != 8) {
+                    input.value += seperator;
+                }
+                $(".dateError").html("");
+                return true;
+            }
+            else {
+                $(".dateError").html("Please Enter Date(MM/DD/YYYY)");
+                $('#date').val('');
+                return false;
+                
+            }
+        };
+    
+    })
+    $('#DOB').click(function (){
+        $('#DOB').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            autoUpdateInput: false,
+            maxDate: new Date(),
+            locale: {
+                cancelLabel: 'Clear'
+            }
+        });
+        $('#DOB').val('');
+    
+        //datevalidation
+        $("#DOB").keydown(function (e) {
+            IsNumeric(this, e.keyCode);
+        });
+    
+        var isShift = false;
+        var seperator = "/";
+        function IsNumeric(input, keyCode) {
+    
+            if ($("#DOB").val() == "") {
+                $(".dateError").html("Please Enter Date(MM/DD/YYYY)")
+                //$('.txtDate').val('');
+            }
+    
+            if (keyCode == 16) {
+                isShift = true;
+            }
+            //Allow only Numeric Keys.
+            if (((keyCode >= 48 && keyCode <= 57) || keyCode == 8 || keyCode <= 37 || keyCode <= 39 || (keyCode >= 96 && keyCode <= 105)) && isShift == false) {
+                if ((input.value.length == 2 || input.value.length == 5) && keyCode != 8) {
+                    input.value += seperator;
+                }
+                $(".dateError").html("");
+                return true;
+            }
+            else {
+                $(".dateError").html("Please Enter Date(MM/DD/YYYY)");
+                $('#DOB').val('');
+                return false;
+                
+            }
+        };
+    
+    })
 
+
+    
     //signature
     
     var canvas = document.getElementById("signature");
