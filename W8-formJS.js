@@ -116,6 +116,7 @@ $(document).ready(function () {
     $("#countryyfailss").hide()
     
 
+   
     function myFunction() {
         var valid = false
 
@@ -479,5 +480,15 @@ $(document).ready(function () {
         }
        
     });
+    $("#zip").on("keypress keyup blur", function (event) {
+   
+        if(isNaN($(this).val())){
+            $("#zipfailss").show()
+            $("#zipfails").html("Enter 5 Digits")
+        }
+        else{
+            $("#zipfails").html("")
+        }
+    })
     
 })
