@@ -455,6 +455,7 @@ $(document).ready(function () {
         return valid
     }
 
+    
     $("#specialRate").on("keypress keyup blur", function (event) {
 
         $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
