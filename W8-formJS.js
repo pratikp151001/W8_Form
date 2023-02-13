@@ -113,6 +113,8 @@ $(document).ready(function () {
     $("#statefailss").hide()
     $("#zipfailss").hide()
     $("#birthdayfailss").hide()
+    $("#countryyfailss").hide()
+    
 
     function myFunction() {
         var valid = false
@@ -317,9 +319,9 @@ $(document).ready(function () {
     }
 
 
-    $('.onlynumber').keyup(function () {
-        this.value = this.value.replace(/[^0-9\.]/g, '');
-    });
+    // $('.onlynumber').keyup(function () {
+    //     this.value = this.value.replace(/[^0-9\.]/g, '');
+    // });
     function zipcheck() {
         var valid = true
         if (isNaN($("#zip").val())) {
@@ -328,11 +330,11 @@ $(document).ready(function () {
             valid = true
         }
         else {
-            if ($("#zip").val().length < 6 || $("#zip").val().length > 6) {
+            if ($("#zip").val().length < 5 || $("#zip").val().length > 5) {
                 $("#zipfailss").show()
-                $("#zipfails").html("Enter 6 Digits")
+                $("#zipfails").html("Enter 5 Digits")
             }
-            if ($("#zip").val().length == 6) {
+            if ($("#zip").val().length == 5) {
                 $("#zipfailss").hide()
                 $("#zipfails").html("")
                 valid = false
@@ -366,8 +368,8 @@ $(document).ready(function () {
             $("#ssnvalid").html("Pelase Enter valid Number")
             valid = true
         }
-        var number = /^[0-9]+$/
-        if ($("#SSN").val().match(number)) {
+        var string = /^[0-9]{11}$/
+        if ($("#SSN").val().match(string)) {
             $("#ssnvalid").html("")
             valid = false
         }
@@ -384,8 +386,8 @@ $(document).ready(function () {
             $("#ttnvalid").html("Pelase Enter valid Number")
             valid = true
         }
-        var number = /^[0-9]+$/
-        if ($("#TTN").val().match(number)) {
+        var string = /^[a-zA-Z0-9]+$/
+        if ($("#TTN").val().match(string)) {
             $("#ttnvalid").html("")
             valid = false
         }
@@ -403,8 +405,8 @@ $(document).ready(function () {
             $("#ReferenceNumbervalid").html("Pelase Enter valid Number")
             valid = true
         }
-        var number = /^[0-9]+$/
-        if ($("#ReferenceNumber").val().match(number)) {
+        var string = /^[A-Za-z0-9]+$/
+        if ($("#ReferenceNumber").val().match(string)) {
             $("#ReferenceNumbervalid").html("")
             valid = false
         }
@@ -451,6 +453,10 @@ $(document).ready(function () {
             if (isNaN($("#specialRate").val())) {
                 valid = true
                 $("#tenthfails").html("Pelase Enter Digits in specialrate")
+                if(parseFloat($("#specialRate").val())>100){
+                    $("#tenthfails").html("Enter Value less than 100")
+                    valid = true
+                }
             } else {
                 valid = false
 
@@ -460,9 +466,14 @@ $(document).ready(function () {
         return valid
     }
 
+
     $("#specialRate").on("keypress keyup blur", function (event) {
 
         $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
+        if( $("#specialRate").val()>100){
+            $("#tenthfails").html("Pelase Enter value less tham 100")
+            $("#specialRate").val()=""
+        }
         if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
             event.preventDefault();
         }
