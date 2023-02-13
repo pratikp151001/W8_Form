@@ -18,7 +18,7 @@ $(document).ready(function () {
 
         if ($(".txtDate").val() == "") {
             $(".dateError").html("Please Enter Date(MM/DD/YYYY)")
-
+            //$('.txtDate').val('');
         }
 
         if (keyCode == 16) {
@@ -29,20 +29,25 @@ $(document).ready(function () {
             if ((input.value.length == 2 || input.value.length == 5) && keyCode != 8) {
                 input.value += seperator;
             }
-
             $(".dateError").html("");
             return true;
         }
         else {
             $(".dateError").html("Please Enter Date(MM/DD/YYYY)");
+            $('.txtDate').val('');
             return false;
+            
         }
     };
 
     //signature
-
+    
     var canvas = document.getElementById("signature");
     var signaturePad = new SignaturePad(canvas);
+    canvas.width = 800;
+    canvas.height = 100;
+    //$('canvas').attr("placeholder","Sign here");
+    
 
     $('#clear-signature').on('click', function () {
         signaturePad.clear();
@@ -461,5 +466,7 @@ $(document).ready(function () {
         if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
             event.preventDefault();
         }
+       
     });
+    
 })
