@@ -10,6 +10,7 @@ $(document).ready(function () {
     });
     $('.txtDate').val('');
     $('.txtDate').attr("placeholder", "MM/DD/YYYY");
+    
 
 
     //signature
@@ -73,6 +74,16 @@ $(document).ready(function () {
             valid= namecheck()
             if(valid==true)
                 return valid
+            
+                valid= primenamecheck()
+                if(valid==true)
+                    return valid
+
+                    valid= capacitycheck()
+                    if(valid==true)
+                        return valid
+    
+
     }
     function namecheck(){
         var valid=true
@@ -81,7 +92,7 @@ $(document).ready(function () {
         $("#namefails").html("Pelase Enter Proper Name")
         valid=true
         }
-        var string=/^[a-zA-Z]+$/
+        var string=/^[a-z A-Z]+$/
         if($("#name").val().match(string)){
         $("#namefails").html("")
         valid=false
@@ -92,4 +103,47 @@ $(document).ready(function () {
         // alert(valid)
         return valid
     }
+
+    function primenamecheck(){
+        var valid=true
+        // alert("namecheck")
+        if($("#printname").val()==""){
+        $("#printnamevalid").html("Pelase Enter valid Name")
+        valid=true
+        }
+        var string=/^[a-z A-Z]+$/
+        if($("#printname").val().match(string)){
+        $("#printnamevalid").html("")
+        valid=false
+        }
+        else{
+            $("#printnamevalid").html("Pelase Enter Name")
+        }
+        // alert(valid)
+        return valid
+    }
+
+    function capacitycheck(){
+        var valid=true
+        // alert("namecheck")
+        if($("#capacity").val()==""){
+        $("#capacityvalid").html("Pelase Enter valid Name")
+        valid=true
+        }
+        var string=/^[a-z A-Z]+$/
+        if($("#capacity").val().match(string)){
+        $("#capacityvalid").html("")
+        valid=false
+        }
+        else{
+            $("#capacityvalid").html("Pelase Enter Name")
+        }
+        // alert(valid)
+        return valid
+    }
+
+   
+    $('.onlynumber').keyup(function () { 
+        this.value = this.value.replace(/[^0-9\.]/g,'');
+    });
 })
