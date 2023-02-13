@@ -12,6 +12,21 @@ $(document).ready(function () {
     $('.txtDate').attr("placeholder", "MM/DD/YYYY");
 
 
+    
+    $('.txtDate').keydown(function(){
+            
+            var myDate = $('.txtDate').val();
+            var dateMMDDYYYRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/ ;
+            if(dateMMDDYYYRegex.test(myDate)){
+              
+               $('.dateError').text('');
+               return true;
+            }else{
+               $('.dateError').text('Enter Valid Date');
+            }
+         
+    })
+
     //signature
     const signatureBox = document.getElementById("signature-canvas");
     signatureBox.width = 800;
@@ -28,7 +43,7 @@ $(document).ready(function () {
     let y = 0;
 
     signatureBox.addEventListener("mousedown", (event) => {
-        debugger
+        
     isDrawing = true;
     context.clearRect(0, 0, signatureBox.width, signatureBox.height);
     x = event.clientX - signatureBox.offsetLeft;
@@ -78,7 +93,7 @@ $(document).ready(function () {
         var valid=true
         // alert("namecheck")
         if($("#name").val()==""){
-        $("#namefails").html("Pelase Enter Proper Name")
+        $("#namefails").html("Please Enter Proper Name")
         valid=true
         }
         var string=/^[a-zA-Z]+$/
@@ -87,7 +102,7 @@ $(document).ready(function () {
         valid=false
         }
         else{
-            $("#namefails").html("Pelase Enter Proper Name")
+            $("#namefails").html("Please Enter Proper Name")
         }
         // alert(valid)
         return valid
