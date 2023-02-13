@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
       integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
       crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="./W8BEN.js"></script>
+      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"></script>
@@ -51,7 +51,8 @@
                     <label for="country">2. Country of citizenship</label>
                   </div>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="country" tabindex="2">   
+                      <input type="text" class="form-control" id="country" tabindex="2">  
+                      <small id="countryfails"></small> 
                      </div>
                   </div>
                   <div class="form-group row mainrow">
@@ -60,21 +61,25 @@
                   </label>
                 </div>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" id="streetaddress" tabindex="3"> 
+                    <input type="text" class="form-control" id="streetaddress" tabindex="3">
+                    <small id="streetaddressfails"></small><br id="streetaddressfailss"> 
                     <small class="subtext">Street Address</small>
                     <br>
                       <br>
                     <input type="text" class="form-control" id="streetaddressline2" tabindex="4"> 
+                    <small id="streetaddressline2fails"></small><br id="streetaddressline2failss"> 
                     <small class="subtext">Street AddressLine 2</small>
                     <br>
                       <br> 
                       <div class="row"> 
                       <div class="col">
                         <input type="text" class="form-control" id="city" tabindex="5">
+                        <small id="cityfails"></small><br id="cityfailss">
                         <small class="subtext">City</small>
                       </div>
                       <div class="col">
                         <input type="text" class="form-control" id="state" tabindex="6">
+                        <small id="statefails"></small><br id="statefailss">
                         <small class="subtext">State</small>
                           </div>
                       </div>
@@ -82,16 +87,18 @@
                       <div class="row"> 
                         <div class="col">
                           <input type="text" class="form-control" id="zip" tabindex="7">
+                          <small id="zipfails"></small><br id="zipfailss">
                           <small class="subtext">Postal/Zip</small>
                         </div>
                         <div class="col">
-                          <select name="country" id="counry" class="form-control" tabindex="8">
+                          <select name="countryy" id="countryy" class="form-control" tabindex="8">
                             <option value="0" selected disabled>Please Select</option>
                             <option value="india">India</option>
                             <option value="afghanistan">Afghanistan</option>
                             <option value="china">China</option>
                           </select>
-                          <small class="subtext">State</small>
+                          <small id="countryyfails"></small><br id="countryyfailss">
+                          <small class="subtext">Country</small>
                             </div>
                         </div>
                       
@@ -183,6 +190,7 @@
                 <div class="col-md-8">
                   <input type="text" class="form-control txtDate" name="txtDate" id="DOB" placeholder="">
                   <small class="subtext">Date</small>
+                  
                 </div>
             </div>
             <br>
@@ -262,7 +270,7 @@
                   </label>
                 </div>
                 <div class="col-md-8">
-                  <input type="text" class="form-control txtDate" name="txtDate"  id="date">
+                  <input type="text" class="form-control txtDate" name="txtDate"  id="date" placeholder="MM/DD/YYYY" maxlength="10">
                   
                 </div>
               </div>

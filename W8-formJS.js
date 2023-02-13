@@ -1,17 +1,51 @@
 
 $(document).ready(function () {
 
-
+    //$('.dateError').hide();
     $('.txtDate').daterangepicker({
         singleDatePicker: true,
         showDropdowns: true,
-        minYear: 1901,
-        dateFormat: 'mm/dd/yy'
+       
+        
     });
     $('.txtDate').val('');
     $('.txtDate').attr("placeholder", "MM/DD/YYYY");
 
 
+    //$('.txtDate').attr("placeholder", "MM/DD/YYYY");
+
+    $(".txtDate").keydown(function (e) {
+        IsNumeric(this, e.keyCode);
+    });
+    var isShift = false;
+    var seperator = "/";
+    function IsNumeric(input, keyCode) {
+        if (keyCode == 16) {
+            isShift = true;
+        }
+        //Allow only Numeric Keys.
+        if (((keyCode >= 48 && keyCode <= 57) || keyCode == 8 || keyCode <= 37 || keyCode <= 39 || (keyCode >= 96 && keyCode <= 105)) && isShift == false) {
+            if ((input.value.length == 2 || input.value.length == 5) && keyCode != 8) {
+                input.value += seperator;
+            }
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    
+    // $('.txtDate').keyup(function(){
+            
+    //         var myDate = $('.txtDate').val();
+    //         var dateMMDDYYYRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{4}$/ ;
+    //         if(dateMMDDYYYRegex.test(myDate)){
+    //             return true;
+    //         }else{
+    //            $('.dateError').text('Enter Valid Date');
+    //         }
+         
+    // })
 
     //signature
     const signatureBox = document.getElementById("signature-canvas");
@@ -34,6 +68,11 @@ $(document).ready(function () {
         context.clearRect(0, 0, signatureBox.width, signatureBox.height);
         x = event.clientX - signatureBox.offsetLeft;
         y = event.clientY - signatureBox.offsetTop;
+        
+    isDrawing = true;
+    context.clearRect(0, 0, signatureBox.width, signatureBox.height);
+    x = event.clientX - signatureBox.offsetLeft;
+    y = event.clientY - signatureBox.offsetTop;
     });
 
     signatureBox.addEventListener("mouseup", () => {
@@ -197,6 +236,8 @@ $(document).ready(function () {
        
         return valid
     }
+
+    
 
     function capacitycheck() {
         var valid = true
